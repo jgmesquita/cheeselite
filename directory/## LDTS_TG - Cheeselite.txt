@@ -1,0 +1,64 @@
+## LDTS_<T><G> - <Cheeselite>
+
+This is a top down adventure game about a mouse that gets out of it's hole-home onto an adventure to retrive the long lost cheese, it will have many obstacles on it's way, such as mosnters. But also it will find coins on the way back to it's hole-home, though the mouse must be fast, to be at home at time, before it will be too late. 
+
+This project was developed by Jorge Gonçalves Mesquita (202108614@fe.up.pt) and Oleksandr Aleshchenko (202210478@fe.up.pt)
+
+### IMPLEMENTED FEATURES
+
+-"Retriving cheese, coins and heal" - when mouse collides with the coins, cheese or heal it collects it and adds it to it's counter (or replanishes health points in the case with healing), though cheese is requierd to proceed on the next level.
+
+-"Getting hit by cats" - with every collision with a monster, mouse looses some health depending on the level. 
+
+-"Returning to the hole" - when the mouse collects minimal requierd amount of cheese, it is possible to proceed on the nex level returning via hole that you started at. 
+
+-"User-friendly menu" - this game has an menu which is really easy to use. It has a "start" and "exit" option. It has also a simple and quick "guide" option, which explains the basic mechanics of the game.
+
+-"Score" - by catching coins and completing levels, the player can earn a pontuation. Try to catch all coins and bring all the cheese!
+
+-"GUI with stats" - you can see your HP, score, the cheese you have collected and the level you are playing.
+
+-"Feedback from game" - the game will provide a losing/winning screen.
+
+
+### PLANNED FEATURES
+
+-"Timer" - when the cheese is retrived the timer starts, and of the end of that timer, if not returned to the hole intime, will fail a level.
+
+-"5 levels with increasing difficulty" - For now the game has 3 levels with the same objects, but we want to implement 5 distinct levels with different number of coins, cats and cheese. It's planned that they will have a specific layout.
+
+-"Highscore"- when the user wins/loses the game, it will appear the score in the winning/losing screen.
+
+### DESIGN
+
+#### INTERACTION WITH THE MENU
+- Context: It's very hard to implement a menu without resorting to the State Pattern. The menu might have many options and sometimes we want to be able go to the momenet before selecting an option.
+- The Pattern: State Pattern
+- Implementation: (in the UML diagram)
+- Consequences: Depending on the option that the users chooses, the program will have a state. For exemple, when we launch the game, we will start with the MenuMainState which will provide options to interact with the game. If we want to see the guide, we will enter in the MenuGuideState.
+
+#### KEEP THE GAME RUNNING
+- Context: The game class should be an active and dynamic process and it should only stop when the users decides it to happen. It should process actively all the inputs from the user.
+- The Pattern: Game Loop Pattern
+- Implementation: (in the UML diagram)
+- Consequences: Now the game class has a permanent life cycle until the user exits the game.
+
+#### EACH CLASS SHOULD HAVE ONLY ONE RESPONSABILITY 
+- Context: If we give a class too many tasks, the program will be more prone to mistakes and it will make it harder to implement new features or even change previous features.
+- The Pattern: MVC Architectural Pattern
+- Implementation: (in the UML diagram)
+- Consequences: Now we will have 3 different types of classes: Viewer<T>, Controller<T> and the model for the elements of the game. Each one will have their own purpose and making changes or implemenet new features will be easy,
+
+#### MASTERKEY CLASS
+- Context: We need a class that defines an interface for creating an object, but that lets sub-classes decide which class to instantiate.
+- The Pattern: Factory Method Pattern
+- Implementation: (in the UML diagram)
+- Consequences: This class will allow the interaction between the methods getController(), getViewer() or getModel() for each subclass.
+
+### KNOWN CODE SMELLS
+- Any code around the "menu" classes needs to be redefined, as we are always repeating the code.
+
+### Evaluation
+
+Jorge : 50%
+Oleksandr : 50%
