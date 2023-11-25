@@ -2,15 +2,15 @@ package com.aor.mouse.visualization.game;
 
 import com.aor.mouse.gui.GUI;
 import com.aor.mouse.modelization.Position;
-import com.aor.mouse.modelization.game.arena.Arena;
 import com.aor.mouse.modelization.game.elements.Element;
+import com.aor.mouse.modelization.game.room.Room;
 import com.aor.mouse.visualization.Viewer;
 
 import java.util.List;
 
-public class GameViewer extends Viewer<Arena> {
-    public GameViewer(Arena arena) {
-        super(arena);
+public class GameViewer extends Viewer<Room> {
+    public GameViewer(Room room) {
+        super(room);
     }
 
     @Override
