@@ -1,3 +1,4 @@
+import com.aor.mouse.Game;
 import com.aor.mouse.dynamic.game.CatController;
 import com.aor.mouse.gui.GUI;
 import com.aor.mouse.modelization.Position;
